@@ -1,118 +1,39 @@
-# 插件自述文件
+# LycheeLib
+这是一个用于歌词接口提供的前置插件
 
-本文件会在插件市场上显示。在安装插件后，本自述文件也会在【应用设置】->【插件】页面中显示。因此，本文件也将会是用户了解你的插件功能的重要途径，建议好好写 README。
+_暂时没有插件使用本前置_
 
-**注意事项：**
+_(ExtraIsland将在下个版本将其作为对于歌词功能的**可选**前置)_
 
-- 嵌入图片时请使用网络图床。
-- 支持在这里直接调用 ClassIsland 内部的 Uri，例如[classisland://app/test/](classisland://app/test/)。
-- 本文件一般会在 ClassIsland 内置的 Markdown 渲染器（基于 [MdXaml](https://github.com/whistyun/MdXaml)）中渲染，仅支持部分 Markdown 语法。
+如果您是插件开发者,推荐您等到下一个版本再行开发,届时接口将会发生些许变动.
 
-***
+如果您实在想要尝试本前置,请为您的项目引入Nuget包 [`LycheeLib.Interface`](https://www.nuget.org/packages/LycheeLib.Interface/)
 
-**支持的 Markdown 语法：**
-
-> 本示例魔改自 [Leanote 博客](http://leanote.leanote.com/post/markdown-source-code)。
-
-# Welcome to ClassIsland! 欢迎来到ClassIsland!
- 
-## 1. 排版
- 
-**粗体** *斜体* 
- 
-~~这是一段错误的文本。~~
- 
-引用:
- 
-> 123123123123
- 
-有充列表:
- 1. 支持Vim
- 2. 支持Emacs
- 
-无序列表:
- 
- - 项目1
- - 项目2
- 
- 
-## 2. 图片与链接
- 
-网络图片:
-![Banner](https://github.com/user-attachments/assets/a815dd7d-8343-4da5-aee4-3f754aa297e4)
-
-WPF 资源图片：
-
-![1690356161339](pack://application:,,,/ClassIsland;component/Assets/AppLogo.png)
-
-链接:
- 
-[ClassIsland 官网](http://classisland.tech)
- 
-## 3. 标题
- 
-以下是各级标题, 最多支持5级标题
- 
-```
-# h1
-## h2
-### h3
-#### h4
-##### h4
-###### h5
-```
- 
-## 4. 代码
- 
-示例:
- 
-    function get(key) {
-        return m[key];
+完成后,在插件入口使用以下代码来进行初始化
+```csharp
+using LycheeLib.Interface;
+//...
+//其他必要代码
+//...
+[PluginEntrance]
+public class Plugin : PluginBase 
+{
+    public override void Initialize(HostBuilderContext context,IServiceCollection services) 
+    {
+        AppBase.Current.AppStarted += (_, _) => {
+            Rendezvous.Load(IAppHost.GetService<ILycheeLyrics>());
+        };
     }
-    
-代码高亮示例:
- 
-``` javascript
-/**
-* nth element in the fibonacci series.
-* @param n >= 0
-* @return the nth element, >= 0.
-*/
-function fib(n) {
-  var a = 1, b = 1;
-  var tmp;
-  while (--n >= 0) {
-    tmp = a;
-    a += b;
-    b = tmp;
-  }
-  return a;
 }
- 
-document.write(fib(10));
 ```
- 
-```python
-class Employee:
-   empCount = 0
- 
-   def __init__(self, name, salary):
-        self.name = name
-        self.salary = salary
-        Employee.empCount += 1
+完成后,您可以使用 `Rendezvous` 静态类进行歌词操作
+
+该类核心为事件 `Rendezvous.OnLyricsChanged` ,其传出一个 `List<string>` 参数
+
+例如:
+```csharp
+Rendezvous.OnLyricsChanged += lyricsList => {
+    Console.WriteLine(lyricList[0]); //这是主要歌词
+    Console.WriteLine(lyricList[1]); //这是次要歌词
+};
 ```
- 
-# 5. Markdown 扩展
- 
-Markdown 扩展支持:
- 
-* 表格
- 
-## 5.1 表格
- 
-Item     | Value
--------- | ---
-Computer | \$1600
-Phone    | \$12
-Pipe     | \$1
- 
