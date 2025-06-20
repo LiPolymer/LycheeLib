@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.13.35931.197
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LycheeLib.ClassIsland", "LycheeLib.ClassIsland\LycheeLib.ClassIsland.csproj", "{CE154007-9C63-402C-A289-38D62593366F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LycheeLib.Island", "LycheeLib.Island\LycheeLib.Island.csproj", "{CE154007-9C63-402C-A289-38D62593366F}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LycheeLib", "LycheeLib\LycheeLib.csproj", "{52B701C4-9BCE-4530-A242-B4019C50E8E6}"
 EndProject

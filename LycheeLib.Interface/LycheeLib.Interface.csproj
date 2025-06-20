@@ -8,6 +8,30 @@
         <Company>LiPolymer</Company>
         <Authors>LiPolymer</Authors>
         <Description>a simple Interface to use LycheeLib in some plugin ecosystem</Description>
+        <PackageLicenseFile>LICENSE</PackageLicenseFile>
+        <PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
+        <RepositoryUrl>https://gitlab.com/LiPolymer/LycheeLib</RepositoryUrl>
+        <PackageProjectUrl>https://gitlab.com/LiPolymer/LycheeLib</PackageProjectUrl>
+        <PackageReadmeFile>README.md</PackageReadmeFile>
+        <PackageIcon>icon.png</PackageIcon>
     </PropertyGroup>
+
+    <ItemGroup>
+      <None Include="..\LICENSE">
+        <Pack>True</Pack>
+        <PackagePath>\</PackagePath>
+      </None>
+      <None Include="..\LycheeLib\icon.png">
+        <Pack>True</Pack>
+        <PackagePath>\</PackagePath>
+      </None>
+    </ItemGroup>
+
+    <ItemGroup>
+      <None Update="README.md">
+        <Pack>True</Pack>
+        <PackagePath>\</PackagePath>
+      </None>
+    </ItemGroup>
 
 </Project>

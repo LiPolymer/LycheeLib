@@ -16,9 +16,9 @@ public class LyricIslandProvider : ILyricsProvider {
     readonly HttpListener _listener;
     string Url { get; }
     bool _isListening;
-
-    public string LogMessage { get; set; } = string.Empty;
-    public bool Status { get; private set; } = true;
+    
+    string LogMessage { get; set; } = string.Empty;
+    bool InterfaceStatus { get; set; } = true;
     
         void StartHttpListener() {
         try {
@@ -28,7 +28,7 @@ public class LyricIslandProvider : ILyricsProvider {
             LogMessage = "启动成功";
         }
         catch (HttpListenerException ex) {
-            Status = false;
+            InterfaceStatus = false;
             Console.WriteLine($"[Lychee][Tracer][LyricsIslandHandler] 启动 HTTP 监听器失败: {ex.Message}");
             LogMessage = $"启动失败 {ex.Message}";
         }

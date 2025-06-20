@@ -1,0 +1,20 @@
+<svg width="500" height="500" viewBox="0 0 500 500" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M63.9335 261.321C65.1368 247.567 77.2626 237.392 91.0172 238.595L150.86 243.831L213.942 249.35C227.697 250.553 237.872 262.679 236.668 276.434L225.914 399.359C224.71 413.113 212.585 423.288 198.83 422.085L75.9049 411.33C62.1503 410.127 51.9755 398.001 53.1789 384.246L58.6034 322.244L63.9335 261.321Z" fill="url(#paint0_linear_11_2)"/>
+<path d="M118.447 327.48C132.201 328.683 144.327 318.508 145.53 304.754L148.682 268.736C149.885 254.981 162.011 244.806 175.765 246.01L213.942 249.35C227.697 250.553 237.872 262.679 236.668 276.434L225.914 399.359C224.71 413.113 212.585 423.288 198.83 422.085L75.9049 411.33C62.1503 410.127 51.9755 398.001 53.1789 384.246L56.4245 347.149C57.6279 333.394 69.7537 323.22 83.5083 324.423L118.447 327.48Z" fill="#D35969"/>
+<rect x="216.876" y="79.9009" width="36.8464" height="277.431" rx="8" transform="rotate(5 216.876 79.9009)" fill="url(#paint1_linear_11_2)"/>
+<rect x="217.696" y="68" width="149.218" height="53.8842" rx="8" transform="rotate(5 217.696 68)" fill="#00A475"/>
+<rect x="281.663" y="165" width="151.72" height="30.3441" rx="5" transform="rotate(5 281.663 165)" fill="#79ABB1"/>
+<rect x="271.651" y="279.437" width="171.227" height="30.3441" rx="5" transform="rotate(5 271.651 279.437)" fill="#79ABB1"/>
+<rect x="266.645" y="336.655" width="154.971" height="30.3441" rx="5" transform="rotate(5 266.645 336.655)" fill="#79ABB1"/>
+<rect x="276.657" y="222.218" width="128.962" height="30.3441" rx="5" transform="rotate(5 276.657 222.218)" fill="#79ABB1"/>
+<defs>
+<linearGradient id="paint0_linear_11_2" x1="87.5" y1="256" x2="159.5" y2="362.5" gradientUnits="userSpaceOnUse">
+<stop stop-color="#FAEDF3"/>
+<stop offset="1" stop-color="#B79F9B"/>
+</linearGradient>
+<linearGradient id="paint1_linear_11_2" x1="235.299" y1="98.3241" x2="235.299" y2="310.733" gradientUnits="userSpaceOnUse">
+<stop stop-color="#D1C560"/>
+<stop offset="1" stop-color="#D35969"/>
+</linearGradient>
+</defs>
+</svg>
