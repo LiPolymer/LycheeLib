@@ -28,7 +28,7 @@ public class Plugin : PluginBase
 ```
 完成后,您可以使用 `Rendezvous` 静态类进行歌词操作
 
-该类核心为事件 `Rendezvous.OnLyricsChanged` ,其传出一个 `List<string>` 参数
+该类的核心为事件 `Rendezvous.OnLyricsChanged` ,其传出一个 `List<string>` 参数
 
 例如:
 ```csharp
