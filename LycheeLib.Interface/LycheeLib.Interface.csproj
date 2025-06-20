@@ -1,0 +1,13 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net8.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+        <Title>LycheeLib.Interface</Title>
+        <Company>LiPolymer</Company>
+        <Authors>LiPolymer</Authors>
+        <Description>a simple Interface to use LycheeLib in some plugin ecosystem</Description>
+    </PropertyGroup>
+
+</Project>
