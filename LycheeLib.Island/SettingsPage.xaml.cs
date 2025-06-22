@@ -1,4 +1,5 @@
 ﻿using System.Text.RegularExpressions;
+using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using ClassIsland.Core.Abstractions.Controls;
@@ -13,6 +14,8 @@ public partial class SettingsPage {
         Settings = Config.Instance!;
         Settings.RestartNeeded += RequestRestart;
         InitializeComponent();
+        MessageZone.Visibility = IslandLycheeBridger.Instance.Status ? Visibility.Collapsed : Visibility.Visible;
+        ErrorMessage.Content = IslandLycheeBridger.Instance.LastMessage;
     }
     
     [GeneratedRegex("[^0-9]+")]

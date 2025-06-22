@@ -9,6 +9,7 @@
                      mc:Ignorable="d"
                      Title="SettingsPage">
     <ScrollViewer DataContext="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=local:SettingsPage}}">
+        <!-- ReSharper disable once Xaml.StaticResourceNotResolved -->
         <StackPanel Style="{StaticResource SettingsPageStackPanelStyle}">
             <StackPanel Orientation="Horizontal" Margin="0,0,0,6">
                 <materialDesign:PackIcon
@@ -19,6 +20,23 @@
                     VerticalAlignment="Center"/>
                 <Label VerticalAlignment="Center" FontSize="30">LycheeLib</Label>
             </StackPanel>
+            <Border x:Name="MessageZone"
+                    Visibility="Collapsed"
+                    Background="#15ff0000" 
+                    Margin="0,0,0,-7" 
+                    Padding="6" 
+                    CornerRadius="4">
+                <StackPanel Orientation="Vertical">
+                    <StackPanel Orientation="Horizontal">
+                        <materialDesign:PackIcon Kind="Scroll"
+                                                 Foreground="{DynamicResource MaterialDesignBody}"
+                                                 VerticalAlignment="Center"
+                                                 Margin="0,0,3,0"/>
+                        <Label x:Name="ErrorMessage"/>
+                    </StackPanel>
+                    <Label/>
+                </StackPanel>
+            </Border>
             <ci:SettingsCard IconGlyph="RouterWireless"
                          Header="LyricsIsland协议端口号"
                          Description="手动修改协议端口号(默认50063)">

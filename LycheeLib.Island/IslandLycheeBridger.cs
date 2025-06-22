@@ -33,7 +33,7 @@ public class IslandLycheeBridger : ILycheeLyrics {
         };
     }
 
-    static readonly LycheeLyricsInstance Instance = new LycheeLyricsInstance();
+    public static readonly LycheeLyricsInstance Instance = new LycheeLyricsInstance();
     public List<string> Lyrics { private set; get; } = [];
     public event Action<List<string>>? OnLyricsChanged;
 }
