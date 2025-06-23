@@ -7,6 +7,8 @@
                      xmlns:ci="http://classisland.tech/schemas/xaml/core" 
                      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
                      mc:Ignorable="d"
+                     Loaded="SettingsPage_OnLoaded"
+                     Unloaded="SettingsPage_OnUnloaded"
                      Title="SettingsPage">
     <ScrollViewer DataContext="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=local:SettingsPage}}">
         <!-- ReSharper disable once Xaml.StaticResourceNotResolved -->
@@ -21,7 +23,6 @@
                 <Label VerticalAlignment="Center" FontSize="30">LycheeLib</Label>
             </StackPanel>
             <Border x:Name="MessageZone"
-                    Visibility="Collapsed"
                     Background="#15ff0000" 
                     Margin="0,0,0,-7" 
                     Padding="6" 
@@ -37,7 +38,28 @@
                     <Label/>
                 </StackPanel>
             </Border>
-            <ci:SettingsCard IconGlyph="RouterWireless"
+            <ci:SettingsCard IconGlyph="Plug" Header="接口选择"
+                             Description="选择要使用的歌词接口">
+                <ci:SettingsCard.Switcher>
+                    <Grid>
+                        <ComboBox
+                            MinWidth="20"
+                            SelectedItem="{Binding Settings.Provider}"
+                            ItemsSource="{Binding ProviderTypes}">
+                            <ComboBox.ItemTemplate>
+                                <DataTemplate>
+                                    <DataTemplate.Resources>
+                                        <local:EnumDescriptionConverter x:Key="EnumDescriptionConverter" />
+                                    </DataTemplate.Resources>
+                                    <TextBlock Text="{Binding Converter={StaticResource EnumDescriptionConverter}}" />
+                                </DataTemplate>
+                            </ComboBox.ItemTemplate>
+                        </ComboBox>
+                    </Grid>
+                </ci:SettingsCard.Switcher>
+            </ci:SettingsCard>
+            
+            <ci:SettingsCard IconGlyph="Island"
                          Header="LyricsIsland协议端口号"
                          Description="手动修改协议端口号(默认50063)">
                 <ci:SettingsCard.Switcher>
@@ -48,6 +70,19 @@
                          InputMethod.IsInputMethodEnabled="False"
                          PreviewTextInput="TextBoxNumberCheck"
                          Text="{Binding Settings.PortOfLyricIsland, Mode=TwoWay}"/>
+                </ci:SettingsCard.Switcher>
+            </ci:SettingsCard>
+            <ci:SettingsCard IconGlyph="Snowflake"
+                             Header="LxMusic协议端口号"
+                             Description="手动修改协议端口号(默认23330)">
+                <ci:SettingsCard.Switcher>
+                    <TextBox Grid.Column="5"
+                             MinWidth="20"
+                             HorizontalContentAlignment="Center"
+                             Margin="3,0,6,0"
+                             InputMethod.IsInputMethodEnabled="False"
+                             PreviewTextInput="TextBoxNumberCheck"
+                             Text="{Binding Settings.PortOfLxMusic, Mode=TwoWay}"/>
                 </ci:SettingsCard.Switcher>
             </ci:SettingsCard>
         </StackPanel>

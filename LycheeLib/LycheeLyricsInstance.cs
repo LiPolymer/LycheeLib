@@ -25,7 +25,8 @@ public class LycheeLyricsInstance {
 }
 
 public interface ILyricsProvider {
-    public event Action<List<string>>? OnLyricsChanged;
-    public string LastMessage { get; }
-    public bool Status { get; }
+    event Action<List<string>>? OnLyricsChanged;
+    string LastMessage { get; }
+    bool Status { get; }
+    void Shutdown();
 }

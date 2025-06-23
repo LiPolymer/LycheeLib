@@ -13,6 +13,9 @@ public class LyricIslandProvider : ILyricsProvider {
     public event Action<List<string>>? OnLyricsChanged;
     public string LastMessage { get; set; } = string.Empty;
     public bool Status { get; set; } = true;
+    public void Shutdown() {
+        
+    }
 
     readonly HttpClient _httpClient = new HttpClient();
     readonly HttpListener _listener;
@@ -24,12 +27,12 @@ public class LyricIslandProvider : ILyricsProvider {
             _listener.Start();
             _isListening = true;
             ListenAsync();
-            LastMessage = "启动成功";
+            LastMessage = "IslandAdapter: 启动成功";
         }
         catch (HttpListenerException ex) {
             Status = false;
             Console.WriteLine($"[Lychee][Tracer][LyricsIslandHandler] 启动 HTTP 监听器失败: {ex.Message}");
-            LastMessage = $"启动失败 {ex.Message}";
+            LastMessage = $"IslandAdapter: 启动失败 {ex.Message}";
         }
     }
 
@@ -45,7 +48,7 @@ public class LyricIslandProvider : ILyricsProvider {
             }
             catch (Exception ex) {
                 Console.WriteLine($"[Lychee][Tracer][LyricsIslandHandler] 监听过程中发生错误: {ex.Message}");
-                LastMessage = $"解析错误 {ex.Message}";
+                LastMessage = $"IslandAdapter: 解析错误 {ex.Message}";
             }
         }
     }

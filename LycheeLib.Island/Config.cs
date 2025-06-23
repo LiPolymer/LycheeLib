@@ -6,6 +6,7 @@ using CommunityToolkit.Mvvm.ComponentModel;
 namespace LycheeLib.Island;
 
 public class Config : ObservableObject {
+    // ReSharper disable once MemberCanBePrivate.Global
     public Config() {
         PropertyChanged += Save;
     }
@@ -41,6 +42,19 @@ public class Config : ObservableObject {
         }
     }
 
+    //// ----------Data----------
+
+    ProviderType _provider = ProviderType.LyricIsland;
+    public ProviderType Provider {
+        get => _provider;
+        set {
+            if (_provider == value) return;
+            _provider = value;
+            OnPropertyChanged();
+            RestartNeeded?.Invoke();
+        }
+    }
+    
     string _portOfLyricIsland = "50063";
     public string PortOfLyricIsland {
         get => _portOfLyricIsland;
@@ -49,6 +63,17 @@ public class Config : ObservableObject {
            _portOfLyricIsland = value;
            OnPropertyChanged();
            RestartNeeded?.Invoke();
+        }
+    }
+
+    string _portOfLxMusic = "23330";
+    public string PortOfLxMusic {
+        get => _portOfLxMusic;
+        set {
+            if (_portOfLxMusic == value) return;
+            _portOfLxMusic = value;
+            OnPropertyChanged();
+            RestartNeeded?.Invoke();
         }
     }
 }
