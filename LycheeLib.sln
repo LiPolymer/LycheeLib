@@ -11,8 +11,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LycheeLib.Interface", "Lych
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LycheeLib.Debugger", "LycheeLib.Debugger\LycheeLib.Debugger.csproj", "{B1CF22EC-4721-4885-ADDA-6E9E634CE07C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LycheeIslandLyrics", "LycheeIslandLyrics\LycheeIslandLyrics.csproj", "{5DE4838E-EB60-41B9-82AD-8CA28D813DB7}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -35,10 +33,6 @@ Global
 		{B1CF22EC-4721-4885-ADDA-6E9E634CE07C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B1CF22EC-4721-4885-ADDA-6E9E634CE07C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B1CF22EC-4721-4885-ADDA-6E9E634CE07C}.Release|Any CPU.Build.0 = Release|Any CPU
-		{5DE4838E-EB60-41B9-82AD-8CA28D813DB7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{5DE4838E-EB60-41B9-82AD-8CA28D813DB7}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{5DE4838E-EB60-41B9-82AD-8CA28D813DB7}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{5DE4838E-EB60-41B9-82AD-8CA28D813DB7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
