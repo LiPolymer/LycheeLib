@@ -6,7 +6,16 @@ namespace LycheeLib.Island;
 
 public class IslandLycheeBridger : ILycheeLyrics {
     public IslandLycheeBridger() {
-        //start:测试
+        /*
+        Console.WriteLine("""
+                              __               __              __    _ __  
+                             / /   __  _______/ /_  ___  ___  / /   (_) /_ 
+                            / /   / / / / ___/ __ \/ _ \/ _ \/ /   / / __ \
+                           / /___/ /_/ / /__/ / / /  __/  __/ /___/ / /_/ /
+                          /_____/\__, /\___/_/ /_/\___/\___/_____/_/_.___/ 
+                                /____/                                     
+                          """); 
+        */
         if (!Instance.HasProvider()) {
             if (!IsPortInRange(Config.Instance!.PortOfLyricIsland)) {
                 Config.Instance.PortOfLyricIsland = "50063";
@@ -33,7 +42,6 @@ public class IslandLycheeBridger : ILycheeLyrics {
                     throw new ArgumentOutOfRangeException();
             }
         }
-        //end
         Instance.OnLyricsChanged += lyrics => {
             Lyrics = lyrics;
             OnLyricsChanged?.Invoke(Lyrics);

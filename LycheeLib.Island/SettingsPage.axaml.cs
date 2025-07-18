@@ -2,19 +2,19 @@
 using System.Globalization;
 using System.Reflection;
 using System.Text.RegularExpressions;
-using System.Windows;
-using System.Windows.Data;
-using System.Windows.Input;
-using System.Windows.Media;
+using Avalonia.Controls;
+using Avalonia.Data.Converters;
+using Avalonia.Interactivity;
+using Avalonia.Media;
+using Avalonia.Threading;
+using ClassIsland.Core.Abstractions.Controls;
 using ClassIsland.Core.Abstractions.Services;
 using ClassIsland.Core.Attributes;
-using MahApps.Metro.Controls;
-using MaterialDesignThemes.Wpf;
 
 namespace LycheeLib.Island;
 
-[SettingsPageInfo("lycheeLib.main","LycheeLib",PackIconKind.MusicNote,PackIconKind.MusicNotePlus)]
-public partial class SettingsPage {
+[SettingsPageInfo("lycheeLib.main","LycheeLib","\uEBCA","\uEBCB")]
+public partial class SettingsPage : SettingsPageBase {
     public SettingsPage(ILessonsService lessonService) {
         Settings = Config.Instance!;
         _lessonService =  lessonService;
@@ -25,9 +25,9 @@ public partial class SettingsPage {
     readonly ILessonsService _lessonService;
     [GeneratedRegex("[^0-9]+")]
     private static partial Regex NumberRegex();
-    void TextBoxNumberCheck(object sender,TextCompositionEventArgs e) {
+    void TextBoxNumberCheck(object sender,TextChangingEventArgs e) {
         Regex re = NumberRegex();
-        e.Handled = re.IsMatch(e.Text);
+        e.Handled = re.IsMatch(((TextBox)sender).Text!);
     }
     public Config Settings { get; set; }
     public List<ProviderType> ProviderTypes { get; } = [
@@ -40,7 +40,7 @@ public partial class SettingsPage {
         UpdateMessage();
     }
     void UpdateMessage() {
-        this.BeginInvoke(() => {
+        Dispatcher.UIThread.InvokeAsync(() => {
             MessageZone.Background = IslandLycheeBridger.Instance.Status ? new SolidColorBrush(Color.FromArgb(0x15,0x00,0xf0,0xff)) 
                 : new SolidColorBrush(Color.FromArgb(0x15,0xff,0x00,0x00));
             ErrorMessage.Content = IslandLycheeBridger.Instance.LastMessage; 
