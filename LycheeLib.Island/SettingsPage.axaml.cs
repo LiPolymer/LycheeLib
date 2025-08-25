@@ -13,6 +13,7 @@ using ClassIsland.Core.Attributes;
 
 namespace LycheeLib.Island;
 
+[HidePageTitle]
 [SettingsPageInfo("lycheeLib.main","LycheeLib","\uEBCA","\uEBCB")]
 public partial class SettingsPage : SettingsPageBase {
     public SettingsPage(ILessonsService lessonService) {
