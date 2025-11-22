@@ -1,13 +1,11 @@
 # LycheeLib
-⌈R0.11⌋
+⌈R0.15⌋
 
 这是一个用于歌词接口提供的前置插件
 
 目前支持LyricsIsland协议(BetterNCM/SimMusic) 和 LXMusic协议
 
-*暂时没有插件使用本前置*
-
-*(ExtraIsland将在下个版本将其作为对于歌词功能的可选前置)*
+ExtraIsland 使用其作为可选前置
 
 如果您想要尝试本前置,请为您的项目引入Nuget包 [LycheeLib.Interface](https://www.nuget.org/packages/LycheeLib.Interface/)
 
