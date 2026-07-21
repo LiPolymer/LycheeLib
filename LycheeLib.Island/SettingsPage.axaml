@@ -35,9 +35,9 @@
                         <Label x:Name="ErrorMessage"/>
                     </StackPanel>
             </Border>
-            <controls:SettingsExpander IconSource="{ci:FluentIconSource Glyph=&#xEDCE;}" Header="接口选择"
+            <controls:FASettingsExpander IconSource="{ci:FluentIconSource Glyph=&#xEDCE;}" Header="接口选择"
                              Description="选择要使用的歌词接口">
-                <controls:SettingsExpander.Footer>
+                <controls:FASettingsExpander.Footer>
                     <Grid>
                         <ComboBox
                             MinWidth="20"
@@ -50,33 +50,33 @@
                             </ComboBox.ItemTemplate>
                         </ComboBox>
                     </Grid>
-                </controls:SettingsExpander.Footer>
-            </controls:SettingsExpander>
+                </controls:FASettingsExpander.Footer>
+            </controls:FASettingsExpander>
             
-            <controls:SettingsExpander IconSource="{ci:FluentIconSource Glyph=&#xE1E7;}"
+            <controls:FASettingsExpander IconSource="{ci:FluentIconSource Glyph=&#xE1E7;}"
                                        Header="LyricsIsland协议端口号"
                                        Description="手动修改协议端口号(默认50063)">
-                <controls:SettingsExpander.Footer>
+                <controls:FASettingsExpander.Footer>
                     <TextBox Grid.Column="5"
                          MinWidth="20"
                          HorizontalContentAlignment="Center"
                          Margin="3,0,6,0"
                          InputMethod.IsInputMethodEnabled="False"
                          Text="{Binding Settings.PortOfLyricIsland, Mode=TwoWay}"/>
-                </controls:SettingsExpander.Footer>
-            </controls:SettingsExpander>
-            <controls:SettingsExpander IconSource="{ci:FluentIconSource Glyph=&#xF461;}"
+                </controls:FASettingsExpander.Footer>
+            </controls:FASettingsExpander>
+            <controls:FASettingsExpander IconSource="{ci:FluentIconSource Glyph=&#xF461;}"
                                        Header="LxMusic协议端口号"
                                        Description="手动修改协议端口号(默认23330)">
-                <controls:SettingsExpander.Footer>
+                <controls:FASettingsExpander.Footer>
                     <TextBox Grid.Column="5"
                              MinWidth="20"
                              HorizontalContentAlignment="Center"
                              Margin="3,0,6,0"
                              InputMethod.IsInputMethodEnabled="False"
                              Text="{Binding Settings.PortOfLxMusic, Mode=TwoWay}"/>
-                </controls:SettingsExpander.Footer>
-            </controls:SettingsExpander>
+                </controls:FASettingsExpander.Footer>
+            </controls:FASettingsExpander>
         </StackPanel>
     </ScrollViewer>
 </ci:SettingsPageBase>
