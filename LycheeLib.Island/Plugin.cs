@@ -1,5 +1,6 @@
 using ClassIsland.Core;
 using ClassIsland.Core.Abstractions;
+using ClassIsland.Core.Abstractions.Services;
 using ClassIsland.Core.Attributes;
 using ClassIsland.Core.Extensions.Registry;
 using ClassIsland.Shared;
@@ -20,6 +21,15 @@ public class Plugin : PluginBase {
 
         AppBase.Current.AppStarted += (_,_) => {
             IAppHost.GetService<ILycheeLyrics>();
+            
+            if (IsPluginInstalled("lrs2187.sai", new Version("0.1.3.0")))
+            {
+                SaiRegistry.Register();
+            }
         };
+    }
+    
+    static bool IsPluginInstalled(string pkgName, Version? version = null) {
+        return IPluginService.LoadedPlugins.Any(info => info.Manifest.Id == pkgName && info.IsEnabled && new Version(info.Manifest.Version) >= version);
     }
 }
