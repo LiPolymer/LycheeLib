@@ -1,0 +1,6 @@
+<Solution>
+  <Project Path="LycheeLib.Debugger/LycheeLib.Debugger.csproj" />
+  <Project Path="LycheeLib.Interface/LycheeLib.Interface.csproj" />
+  <Project Path="LycheeLib.Island/LycheeLib.Island.csproj" />
+  <Project Path="LycheeLib/LycheeLib.csproj" />
+</Solution>
