@@ -42,7 +42,8 @@
                         <ComboBox
                             MinWidth="20"
                             SelectedItem="{Binding Settings.Provider}"
-                            ItemsSource="{Binding ProviderTypes}">
+                            ItemsSource="{Binding ProviderTypes}"
+                            DropDownClosed="OnDropDownClosed">
                             <ComboBox.ItemTemplate>
                                 <DataTemplate>
                                     <TextBlock Text="{Binding Converter={StaticResource EnumDescriptionConverter}}" />
@@ -62,7 +63,8 @@
                          HorizontalContentAlignment="Center"
                          Margin="3,0,6,0"
                          InputMethod.IsInputMethodEnabled="False"
-                         Text="{Binding Settings.PortOfLyricIsland, Mode=TwoWay}"/>
+                         Text="{Binding Settings.PortOfLyricIsland, Mode=TwoWay}"
+                         LosingFocus="OnLosingFocus"/>
                 </controls:FASettingsExpander.Footer>
             </controls:FASettingsExpander>
             <controls:FASettingsExpander IconSource="{ci:FluentIconSource Glyph=&#xF461;}"
@@ -74,7 +76,8 @@
                              HorizontalContentAlignment="Center"
                              Margin="3,0,6,0"
                              InputMethod.IsInputMethodEnabled="False"
-                             Text="{Binding Settings.PortOfLxMusic, Mode=TwoWay}"/>
+                             Text="{Binding Settings.PortOfLxMusic, Mode=TwoWay}"
+                             LosingFocus="OnLosingFocus"/>
                 </controls:FASettingsExpander.Footer>
             </controls:FASettingsExpander>
         </StackPanel>

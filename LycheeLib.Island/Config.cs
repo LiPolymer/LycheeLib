@@ -16,8 +16,6 @@ public class Config : ObservableObject {
     
     public static Config? Instance;
     
-    public event Action? RestartNeeded;
-    
     public static void Load() {
         try {
             Instance = ConfigureFileHelper.LoadConfig<Config>(ConfigPath);
@@ -41,6 +39,18 @@ public class Config : ObservableObject {
             Console.WriteLine($"[Lychee]写入配置文件失败: {ex.Message}");
         }
     }
+    public Config Copy() => new Config {
+        Provider = _provider,
+        PortOfLxMusic = _portOfLxMusic,
+        PortOfLyricIsland = _portOfLyricIsland
+    };
+
+    public static bool operator ==(Config one, Config another) => 
+        one.Provider == another.Provider 
+        && one.PortOfLxMusic == another.PortOfLxMusic 
+        && one.PortOfLyricIsland == another.PortOfLyricIsland;
+    
+    public static bool operator !=(Config one,Config another) => !(one == another);
 
     //// ----------Data----------
 
@@ -51,7 +61,6 @@ public class Config : ObservableObject {
             if (_provider == value) return;
             _provider = value;
             OnPropertyChanged();
-            RestartNeeded?.Invoke();
         }
     }
     
@@ -62,7 +71,6 @@ public class Config : ObservableObject {
            if (_portOfLyricIsland == value) return;
            _portOfLyricIsland = value;
            OnPropertyChanged();
-           RestartNeeded?.Invoke();
         }
     }
 
@@ -73,7 +81,6 @@ public class Config : ObservableObject {
             if (_portOfLxMusic == value) return;
             _portOfLxMusic = value;
             OnPropertyChanged();
-            RestartNeeded?.Invoke();
         }
     }
 }

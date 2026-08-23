@@ -4,6 +4,7 @@ using System.Reflection;
 using System.Text.RegularExpressions;
 using Avalonia.Controls;
 using Avalonia.Data.Converters;
+using Avalonia.Input;
 using Avalonia.Interactivity;
 using Avalonia.Media;
 using Avalonia.Threading;
@@ -16,10 +17,11 @@ namespace LycheeLib.Island;
 [HidePageTitle]
 [SettingsPageInfo("lycheeLib.main","LycheeLib","\uEBCA","\uEBCB")]
 public partial class SettingsPage : SettingsPageBase {
+    static Config? _before;
     public SettingsPage(ILessonsService lessonService) {
         Settings = Config.Instance!;
+        _before ??= Settings.Copy();
         _lessonService =  lessonService;
-        Settings.RestartNeeded += RequestRestart;
         InitializeComponent();
         UpdateMessage();
     }
@@ -35,11 +37,8 @@ public partial class SettingsPage : SettingsPageBase {
         ProviderType.LyricIsland,
         ProviderType.LxMusic
     ];
-
     
-    void UpdateMessage(object? sender,EventArgs e) {
-        UpdateMessage();
-    }
+    void UpdateMessage(object? sender,EventArgs e) => UpdateMessage();
     void UpdateMessage() {
         Dispatcher.UIThread.InvokeAsync(() => {
             MessageZone.Background = IslandLycheeBridger.Instance.Status ? new SolidColorBrush(Color.FromArgb(0x15,0x00,0xf0,0xff)) 
@@ -47,12 +46,22 @@ public partial class SettingsPage : SettingsPageBase {
             ErrorMessage.Content = IslandLycheeBridger.Instance.LastMessage; 
         });
     }
+    void PerfRestartNotify() {
+        if (Settings == _before!) return;
+        RequestRestart();
+        _before = Settings.Copy();
+    }
+    
     void SettingsPage_OnUnloaded(object sender,RoutedEventArgs e) {
+        PerfRestartNotify();
         _lessonService.PostMainTimerTicked -= UpdateMessage;
     }
     void SettingsPage_OnLoaded(object sender,RoutedEventArgs e) {
+        PerfRestartNotify();
         _lessonService.PostMainTimerTicked += UpdateMessage;
     }
+    void OnDropDownClosed(object? sender,EventArgs e) => PerfRestartNotify();
+    void OnLosingFocus(object? sender,FocusChangingEventArgs e) => PerfRestartNotify();
 }
 
 public class EnumDescriptionConverter : IValueConverter {
