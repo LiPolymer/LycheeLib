@@ -1,6 +1,8 @@
 # LycheeLib
 这是一个用于歌词接口提供的前置插件
 
+<img src="https://lipoly.ink/assets/badges/humanity.svg" alt="This project was built by human" width="200">
+
 目前支持 LyricsIsland 协议 (BetterNCM/SimMusic) 和 LXMusic 协议
 
 ExtraIsland 将其作为对于歌词功能的**可选**前置
