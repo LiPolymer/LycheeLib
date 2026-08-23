@@ -3,6 +3,8 @@
 
 这是一个用于歌词接口提供的前置插件
 
+<img src="https://lipoly.ink/assets/badges/humanity.svg" alt="This project was built by human" width="200">
+
 目前支持LyricsIsland协议(BetterNCM/SimMusic) 和 LXMusic协议
 
 ExtraIsland 使用其作为可选前置
