@@ -8,7 +8,7 @@
 	</PropertyGroup>
 
 	<ItemGroup>
-		<PackageReference Include="ClassIsland.PluginSdk" Version="2.1.1">
+		<PackageReference Include="ClassIsland.PluginSdk" Version="2.1.1.1">
 			<ExcludeAssets>runtime</ExcludeAssets>
 		</PackageReference>
 		<PackageReference Include="SuperAutoIsland.Interface" Version="0.1.3" />
